@@ -1,8 +1,28 @@
-import uuid
-
+from django.contrib.auth.models import User
 from django.db import models
 
 
 class Request(models.Model):
-    id = models.UUIDField(primary_key=True, editable=False, default=uuid.uuid4)
-    body = models.CharField(max_length=5000, blank=True)
+    endpoint = models.CharField(max_length=100, null=True)
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    response_code = models.PositiveSmallIntegerField()
+    method = models.CharField(max_length=10, null=True)
+    remote_address = models.CharField(max_length=20, null=True)
+    exec_time = models.IntegerField(null=True)
+    date = models.DateTimeField(auto_now=True)
+    body_response = models.TextField()
+    body_request = models.TextField()
+
+    class Meta:
+        ordering = ("-date",)
+
+    def __str__(self):
+        return ", ".join(
+            [
+                self.endpoint,
+                self.response_code,
+                self.method,
+                self.exec_time,
+                self.date,
+            ]
+        )
