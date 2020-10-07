@@ -17,6 +17,9 @@
 
 ### Admin Interface
 
+- user: admin
+- password: admin
+
 <img src="https://github.com/gurupratap-matharu/midware/blob/master/staticfiles/img/admin.png" alt="drawing" width="1920"/>
 
 ## Motivation 🎯
