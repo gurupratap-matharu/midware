@@ -3,25 +3,21 @@
 
 <img src="https://github.com/gurupratap-matharu/midware/blob/master/staticfiles/img/hero.jpg" alt="drawing" width="1920"/>
 
-## LIVE!
+## LIVE
 
-https://midware.herokuapp.com/api/v1/
+<https://midware.herokuapp.com/api/v1/>
 
 ### Stripe Payments
 
-
-
 <img src="https://github.com/gurupratap-matharu/midware/blob/master/staticfiles/img/stripe.png" alt="drawing" width="1920"/>
-
-
 
 ### Browsable Request API
 
-
-
 <img src="https://github.com/gurupratap-matharu/midware/blob/master/staticfiles/img/request.png" alt="drawing" width="1920"/>
 
+### Admin Interface
 
+<img src="https://github.com/gurupratap-matharu/midware/blob/master/staticfiles/img/admin.png" alt="drawing" width="1920"/>
 
 ## Motivation 🎯
 
