@@ -19,10 +19,10 @@ class Request(models.Model):
     def __str__(self):
         return ", ".join(
             [
-                self.endpoint,
-                self.response_code,
+                str(self.date),
                 self.method,
-                self.exec_time,
-                self.date,
+                self.endpoint,
+                str(self.response_code),
+                str(self.exec_time),
             ]
         )
