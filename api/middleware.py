@@ -9,21 +9,12 @@ logger = logging.getLogger(__name__)
 class PaymentProcessorMiddleware:
     def __init__(self, get_response):
         self.get_response = get_response
-        self.prefixs = [
-            '/url/prefixes/that/should/be/logged',
-            '/example/'
-        ]
 
     def __call__(self, request):
         _t = time.time()
         response = self.get_response(request)
         _t = int((time.time() - _t) * 1000)
 
-        if not list(filter(request.get_full_path().startswith, self.prefixs)):
-            return response
-
-        logger.info(request)
-        logger.info(response)
         try:
             r = Request.objects.create(
                 endpoint=request.get_full_path(),
@@ -34,7 +25,8 @@ class PaymentProcessorMiddleware:
                 body_response=str(response.content),
                 body_request=str(request.body)
             )
-            print(r)
+            logger.info(r)
+            logger.info(response)
 
         except (ValueError, AttributeError) as e:
             print(e)
