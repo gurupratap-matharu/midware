@@ -1,6 +1,8 @@
 
 <h1 align="center">Payment Processor</h1>
 
+<img src="https://github.com/gurupratap-matharu/midware/blob/master/staticfiles/img/hero.jpg" alt="drawing" width="1920"/>
+
 ### Stripe Payments
 
 <img src="https://github.com/gurupratap-matharu/midware/blob/master/staticfiles/img/stripe.png" alt="drawing" width="1920"/>
