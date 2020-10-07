@@ -6,4 +6,4 @@ from api.models import Request
 class RequestSerializer(serializers.ModelSerializer):
     class Meta:
         model = Request
-        fields = ('id', 'body',)
+        fields = ('id', 'date', 'method', 'endpoint', 'response_code', 'exec_time', 'remote_address',)
