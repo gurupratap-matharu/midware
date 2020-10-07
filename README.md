@@ -3,7 +3,11 @@
 
 ### Stripe Payments
 
-<img src="https://github.com/gurupratap-matharu/awesome-survey/blob/master/staticfiles/img/strip.png" alt="drawing" width="1920"/>
+<img src="https://github.com/gurupratap-matharu/midware/blob/master/staticfiles/img/stripe.png" alt="drawing" width="1920"/>
+
+### Browsable Request API
+
+<img src="https://github.com/gurupratap-matharu/midware/blob/master/staticfiles/img/request.png" alt="drawing" width="1920"/>
 
 ## Motivation 🎯
 
