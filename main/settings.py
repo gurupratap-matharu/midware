@@ -138,12 +138,13 @@ LOGGING = {
             'formatter': 'simple'
         },
     },
-    'root': {
-        'handlers': ['console'],
-        'level': 'INFO',
-    },
     'loggers': {
         'main': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+        'api': {
             'handlers': ['console'],
             'level': 'DEBUG',
             'propagate': True,
