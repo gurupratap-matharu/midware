@@ -17,6 +17,7 @@
 
 ### Admin Interface
 
+- url: <https://midware.herokuapp.com/dj-admin/>
 - user: admin
 - password: admin
 
