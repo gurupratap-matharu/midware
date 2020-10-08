@@ -1,3 +1,4 @@
+import json
 import logging
 import time
 
@@ -12,7 +13,12 @@ class PaymentProcessorMiddleware:
 
     def __call__(self, request):
         _t = time.time()
-        body_request = str(request.body)
+
+        body_request = ''
+
+        if request.method == 'POST':
+            body_request = self.mask_sensitive_data(request)
+
         response = self.get_response(request)
         _t = int((time.time() - _t) * 1000)
 
@@ -41,3 +47,15 @@ class PaymentProcessorMiddleware:
         else:
             _ip = request.META.get('REMOTE_ADDR')
         return _ip
+
+    def mask_sensitive_data(self, request):
+        """Masks Credit Card and CVV info before storing into the DB"""
+
+        data = json.loads(request.body)
+        raw_cc_num, raw_cvv = data['cc_num'], data['cvv']
+
+        masked_cc_num = len(raw_cc_num[:-4]) * 'X' + raw_cc_num[-4:]
+        masked_cvv = len(raw_cvv) * 'X'
+
+        data['cc_num'], data['cvv'] = masked_cc_num, masked_cvv
+        return json.dumps(data)
