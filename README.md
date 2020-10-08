@@ -47,3 +47,5 @@ Steps to locally setup development after cloning the project.
 `docker-compose up -d --build`
 or simple
 `make build` ;)
+
+Make sure you rename .env.example to .env and declare the environment variables in root folder for docker to pickup!
