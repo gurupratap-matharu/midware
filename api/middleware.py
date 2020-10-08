@@ -12,6 +12,7 @@ class PaymentProcessorMiddleware:
 
     def __call__(self, request):
         _t = time.time()
+        body_request = str(request.body)
         response = self.get_response(request)
         _t = int((time.time() - _t) * 1000)
 
@@ -23,7 +24,7 @@ class PaymentProcessorMiddleware:
                 remote_address=self.get_client_ip(request),
                 exec_time=_t,
                 body_response=str(response.content),
-                body_request=str(request.body)
+                body_request=body_request
             )
             logger.info(r)
             logger.info(response)
