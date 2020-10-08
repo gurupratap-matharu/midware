@@ -17,7 +17,10 @@ class PaymentProcessorMiddleware:
         body_request = ''
 
         if request.method == 'POST':
-            body_request = self.mask_sensitive_data(request)
+            try:
+                body_request = self.mask_sensitive_data(request)
+            except Exception as e:
+                logger.error(e)
 
         response = self.get_response(request)
         _t = int((time.time() - _t) * 1000)
