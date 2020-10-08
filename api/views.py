@@ -27,6 +27,7 @@ class RequestListAPIView(APIView):
         return Response(serializer.data)
 
     def post(self, request, format=None):
+        print('API Post request.data:', request.data)
         intent = stripe.PaymentIntent.create(
             amount=5099,
             currency='usd',
@@ -34,4 +35,4 @@ class RequestListAPIView(APIView):
             confirm=True,
             metadata={'integration_check': 'accept_a_payment'},
         )
-        return Response(status=status.HTTP_201_CREATED)
+        return Response(intent.to_dict(), status=status.HTTP_201_CREATED)
